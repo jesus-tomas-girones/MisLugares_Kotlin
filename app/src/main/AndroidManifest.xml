@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.mislugares">
+
+   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+   <application
+           android:name="Aplicacion"
+           android:allowBackup="false"
+           android:icon="@mipmap/ic_launcher"
+           android:label="@string/app_name"
+           android:roundIcon="@mipmap/ic_launcher_round"
+           android:supportsRtl="true"
+           android:theme="@style/AppTheme">
+      <activity
+              android:name=".presentacion.MainActivity"
+              android:label="@string/app_name"
+              android:theme="@style/AppTheme.NoActionBar">
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+
+            <category android:name="android.intent.category.LAUNCHER"/>
+         </intent-filter>
+      </activity>
+      <activity
+              android:name=".presentacion.AcercaDeActivity"
+              android:label="Acerca de ..."
+              android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+      <activity
+              android:name=".presentacion.PreferenciasActivity"
+              android:label="Preferencias"/>
+      <!--       android:theme="@style/Theme.AppCompat.Light.Dialog"-->
+
+      <activity
+              android:name=".presentacion.VistaLugarActivity"
+              android:label="Vista Lugar"/>
+      <activity
+              android:name=".presentacion.EdicionLugarActivity"
+              android:label="Edición Lugar"/>
+      <activity android:name=".presentacion.MapaActivity"
+                android:screenOrientation="portrait"/>
+
+      <provider
+              android:name="android.support.v4.content.FileProvider"
+              android:authorities="es.upv.jtomas.mislugares.fileProvider"
+              android:exported="false"
+              android:grantUriPermissions="true">
+         <meta-data
+                 android:name="android.support.FILE_PROVIDER_PATHS"
+                 android:resource="@xml/file_paths"/>
+
+      </provider>
+      <meta-data
+              android:name="com.google.android.geo.API_KEY"
+              android:value="@string/google_maps_key"/>
+      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+   </application>
+
+</manifest>
