@@ -1,16 +1,16 @@
 package com.example.mislugares.presentacion
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.edicion_lugar.*
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mislugares.Aplicacion
 import com.example.mislugares.casos_uso.CasosUsoLugar
 import com.example.mislugares.modelo.Lugar
 import com.example.mislugares.R
 import com.example.mislugares.modelo.TipoLugar
+import kotlinx.android.synthetic.main.edicion_lugar.*
 
 class EdicionLugarActivity: AppCompatActivity() {
 

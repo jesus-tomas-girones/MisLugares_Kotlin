@@ -1,11 +1,12 @@
 package com.example.mislugares.presentacion
 
 import android.app.Dialog
+import android.app.PendingIntent.getActivity
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.app.TimePickerDialog.OnTimeSetListener
-import android.support.v4.app.DialogFragment
 import android.text.format.DateFormat
+import androidx.fragment.app.DialogFragment
 import java.util.*
 
 class DialogoSelectorHora : DialogFragment() {

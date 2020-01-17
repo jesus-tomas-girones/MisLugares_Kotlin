@@ -6,8 +6,7 @@ import com.example.mislugares.datos.LugaresBD
 import com.example.mislugares.modelo.Lugar
 
 
-class AdaptadorLugaresBD(lugares: LugaresBD, var cursor: Cursor/*,
-                         override var onClick: (View) -> Unit*/) : AdaptadorLugares(lugares/*, onClick*/) {
+class AdaptadorLugaresBD(lugares: LugaresBD, var cursor: Cursor) : AdaptadorLugares(lugares) {
 
    fun lugarPosicion(posicion: Int): Lugar {
       cursor.moveToPosition(posicion)
@@ -27,17 +26,14 @@ class AdaptadorLugaresBD(lugares: LugaresBD, var cursor: Cursor/*,
              else                  pos
    }
 
-
    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
       val lugar = lugarPosicion(position)
       holder.personaliza(lugar, onClick)
-      holder.view.tag = position   ///////////////////
-
+      holder.view.tag = position
    }
 
    override fun getItemCount(): Int {
       return cursor.getCount()
    }
-
 
 }

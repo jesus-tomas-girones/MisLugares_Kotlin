@@ -31,8 +31,6 @@
       <activity
               android:name=".presentacion.PreferenciasActivity"
               android:label="Preferencias"/>
-      <!--       android:theme="@style/Theme.AppCompat.Light.Dialog"-->
-
       <activity
               android:name=".presentacion.VistaLugarActivity"
               android:label="Vista Lugar"/>
@@ -41,16 +39,14 @@
               android:label="Edición Lugar"/>
       <activity android:name=".presentacion.MapaActivity"
                 android:screenOrientation="portrait"/>
-
       <provider
-              android:name="android.support.v4.content.FileProvider"
+              android:name="androidx.core.content.FileProvider"
               android:authorities="es.upv.jtomas.mislugares.fileProvider"
               android:exported="false"
               android:grantUriPermissions="true">
          <meta-data
                  android:name="android.support.FILE_PROVIDER_PATHS"
                  android:resource="@xml/file_paths"/>
-
       </provider>
       <meta-data
               android:name="com.google.android.geo.API_KEY"

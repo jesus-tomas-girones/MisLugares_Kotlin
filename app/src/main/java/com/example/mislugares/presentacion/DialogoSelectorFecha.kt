@@ -1,18 +1,17 @@
 package com.example.mislugares.presentacion
 
 import android.app.DatePickerDialog
-import android.os.Bundle
-import android.app.DatePickerDialog.OnDateSetListener
 import android.app.Dialog
-import android.support.v4.app.DialogFragment
+import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import java.util.*
-
+//import android.app.DatePickerDialog.OnDateSetListener
 
 class DialogoSelectorFecha : DialogFragment() {
 
-   private var escuchador: OnDateSetListener? = null
+   private var escuchador: DatePickerDialog.OnDateSetListener? = null
 
-   fun setOnDateSetListener(escuchador: OnDateSetListener) {
+   fun setOnDateSetListener(escuchador: DatePickerDialog.OnDateSetListener) {
       this.escuchador = escuchador
    }
 
@@ -23,6 +22,6 @@ class DialogoSelectorFecha : DialogFragment() {
       val anyo = calendario.get(Calendar.YEAR)
       val mes = calendario.get(Calendar.MONTH)
       val dia = calendario.get(Calendar.DAY_OF_MONTH)
-      return DatePickerDialog(getActivity(), escuchador, anyo, mes, dia)
+      return DatePickerDialog(getActivity()!!.applicationContext, escuchador, anyo, mes, dia)
    }
 }

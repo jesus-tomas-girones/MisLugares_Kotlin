@@ -1,17 +1,15 @@
 package com.example.mislugares.presentacion
 
-import android.support.v7.widget.LinearLayoutManager
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mislugares.Aplicacion
 import com.example.mislugares.R
 import com.example.mislugares.casos_uso.CasosUsoLugar
-import kotlinx.android.synthetic.main.fragment_selector.*
-
 
 class SelectorFragment : Fragment() {
    val lugares by lazy { (activity!!.application as Aplicacion).lugares }

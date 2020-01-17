@@ -3,8 +3,6 @@ package com.example.mislugares.casos_uso
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.widget.TextView
 import android.widget.TimePicker
 import com.example.mislugares.R
@@ -14,13 +12,13 @@ import com.example.mislugares.presentacion.AdaptadorLugaresBD
 import com.example.mislugares.presentacion.DialogoSelectorHora
 import java.util.*
 import android.widget.DatePicker
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.example.mislugares.presentacion.DialogoSelectorFecha
-import com.example.mislugares.presentacion.VistaLugarFragment
-
 
 class CasosUsoLugarFecha(
    override val actividad: FragmentActivity,
-   override val fragment: Fragment,  //>>
+   override val fragment: Fragment,
    override val lugares: LugaresBD,
    override val adaptador: AdaptadorLugaresBD
 ) : CasosUsoLugar(actividad, fragment, lugares, adaptador),
@@ -36,7 +34,7 @@ class CasosUsoLugarFecha(
       this.pos = pos
       val dialogo = DialogoSelectorHora()
       dialogo.setOnTimeSetListener(this)
-      val args = Bundle();
+      val args = Bundle()
       args.putLong("fecha", lugar.fecha)
       dialogo.setArguments(args)
       dialogo.show(

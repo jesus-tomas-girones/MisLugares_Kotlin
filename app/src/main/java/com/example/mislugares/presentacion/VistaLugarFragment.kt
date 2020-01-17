@@ -5,16 +5,16 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.*
-import kotlinx.android.synthetic.main.vista_lugar.*
 import java.text.DateFormat
 import java.util.*
 import android.widget.Toast
 import com.example.mislugares.*
 import com.example.mislugares.modelo.Lugar
 import android.view.MenuInflater
+import androidx.fragment.app.Fragment
 import com.example.mislugares.casos_uso.CasosUsoLugarFecha
+import kotlinx.android.synthetic.main.vista_lugar.*
 
 class VistaLugarFragment : Fragment() {
    val RESULTADO_EDITAR = 1
@@ -141,7 +141,7 @@ class VistaLugarFragment : Fragment() {
          if (resultCode == RESULT_OK) {
             usoLugar.ponerFoto(pos, data?.dataString ?: "", foto)
          } else {
-            Toast.makeText(activity, "Foto no cargada", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "Foto no cargada", Toast.LENGTH_LONG).show()
          }
       } else if (requestCode == RESULTADO_FOTO) {
          if (resultCode == Activity.RESULT_OK && uriUltimaFoto!=null) {

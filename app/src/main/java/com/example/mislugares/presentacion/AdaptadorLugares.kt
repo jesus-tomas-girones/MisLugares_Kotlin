@@ -1,10 +1,10 @@
 package com.example.mislugares.presentacion
 
-import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mislugares.Aplicacion
 import com.example.mislugares.R
 import com.example.mislugares.datos.RepositorioLugares
@@ -74,31 +74,9 @@ open class AdaptadorLugares(
    override fun onBindViewHolder(holder: ViewHolder, posicion: Int) {
       val lugar = lugares.elemento(posicion)
       holder.personaliza(lugar, onClick)
-      holder.view.tag = posicion.toString()  ///////////////////
+      holder.view.tag = posicion.toString()
    }
 
-
-/*   // Personalizamos un ViewHolder a partir de un lugar
-   fun personalizaVista(holder: ViewHolder, lugar: Lugar) {
-      holder.nombre.text = lugar.nombre
-      holder.direccion.text = lugar.direccion
-      var pos = R.drawable.otros
-      when (lugar.tipoLugar) {
-         TipoLugar.RESTAURANTE -> pos = R.drawable.restaurante
-         TipoLugar.BAR -> pos = R.drawable.bar
-         TipoLugar.COPAS -> pos = R.drawable.copas
-         TipoLugar.ESPECTACULO -> pos = R.drawable.espectaculos
-         TipoLugar.HOTEL -> pos = R.drawable.hotel
-         TipoLugar.COMPRAS -> pos = R.drawable.compras
-         TipoLugar.EDUCACION -> pos = R.drawable.educacion
-         TipoLugar.DEPORTE -> pos = R.drawable.deporte
-         TipoLugar.NATURALEZA -> pos = R.drawable.naturaleza
-         TipoLugar.GASOLINERA -> pos = R.drawable.gasolinera
-      }
-      holder.foto.setImageResource(pos)
-      holder.foto.setScaleType(ImageView.ScaleType.FIT_END)
-      holder.valoracion.rating = lugar.valoracion
-   }*/
 
    // Indicamos el número de elementos de la lista
    override fun getItemCount() = lugares.tamanyo()

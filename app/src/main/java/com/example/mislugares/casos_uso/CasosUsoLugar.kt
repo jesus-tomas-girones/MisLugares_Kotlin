@@ -8,11 +8,12 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
-import android.support.v4.app.Fragment
-import android.support.v4.content.FileProvider
-import android.support.v7.app.AlertDialog
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.example.mislugares.Aplicacion
 import com.example.mislugares.datos.LugaresBD
 import com.example.mislugares.modelo.GeoPunto
@@ -23,7 +24,6 @@ import java.io.IOException
 import java.io.InputStream
 import java.net.URL
 import com.example.mislugares.R
-import android.support.v4.app.FragmentActivity
 import com.example.mislugares.presentacion.*
 
 open class CasosUsoLugar(
@@ -65,23 +65,21 @@ open class CasosUsoLugar(
    }
 
    fun mostrar(pos: Int) {
-      var fragmentVista = obtenerFragmentVista()
+      val fragmentVista = obtenerFragmentVista()
       if (fragmentVista != null) {
          fragmentVista.pos = pos
          fragmentVista._id = adaptador.idPosicion(pos)  /////////////////
          fragmentVista.actualizaVistas()
       } else {
          val i = Intent(actividad, VistaLugarActivity::class.java)
-         i.putExtra("pos", pos);
-         actividad.startActivity(i);
+         i.putExtra("pos", pos)
+         actividad.startActivity(i)
       }
    }
 
    fun editar(pos: Int, codidoSolicitud: Int) {
       val i = Intent(actividad, EdicionLugarActivity::class.java)
-      i.putExtra("pos", pos);
-      ///////////
-      //actividad.startActivityForResult(i, codidoSolicitud)
+      i.putExtra("pos", pos)
       fragment?.startActivityForResult(i, codidoSolicitud)
               ?:actividad.startActivityForResult(i, codidoSolicitud)
    }
@@ -222,7 +220,7 @@ open class CasosUsoLugar(
    }
 
    fun visualizarFoto(lugar: Lugar, imageView: ImageView) {
-      if (!(lugar.foto == null || lugar.foto.isEmpty())) {
+      if (!(/*lugar.foto == null ||*/ lugar.foto.isEmpty())) {
 //imageView.setImageURI(Uri.parse(uri))
          imageView.setImageBitmap(reduceBitmap(actividad, lugar.foto, 1024, 1024))
       } else {
@@ -236,7 +234,7 @@ open class CasosUsoLugar(
 
    private fun reduceBitmap(contexto: Context, uri: String, maxAncho: Int, maxAlto: Int): Bitmap? {
       try {
-         var input: InputStream? = null
+         var input: InputStream?
          val u = Uri.parse(uri)
          if (u.scheme == "http" || u.scheme == "https") {
             input = URL(uri).openStream()

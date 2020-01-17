@@ -1,7 +1,6 @@
 package com.example.mislugares.presentacion
 
 import android.content.Intent
-import android.support.v4.app.FragmentActivity
 import android.os.Bundle
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,7 +12,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.support.v4.app.ActivityCompat
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.FragmentActivity
 import com.example.mislugares.Aplicacion
 import com.example.mislugares.R
 import com.google.android.gms.maps.model.Marker
@@ -34,7 +34,7 @@ class MapaActivity: FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWind
 
    override fun onMapReady(googleMap: GoogleMap) {  //****** overrride
       mapa = googleMap
-      mapa.setOnInfoWindowClickListener(this);
+      mapa.setOnInfoWindowClickListener(this)
       mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL)
       if (ActivityCompat.checkSelfPermission(this,
             android.Manifest.permission.ACCESS_FINE_LOCATION)
@@ -55,7 +55,7 @@ class MapaActivity: FragmentActivity(), OnMapReadyCallback, GoogleMap.OnInfoWind
       for (n in 0 until adaptador.itemCount) {
          val lugar = adaptador.lugarPosicion(n)
          val p = lugar.posicion
-         if (p != null && p.latitud != 0.0) {
+         if (/*p != null &&*/ p.latitud != 0.0) {
             val iGrande = BitmapFactory.decodeResource(
                getResources(), lugar.tipoLugar.recurso)
 
